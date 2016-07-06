@@ -1,0 +1,132 @@
+{
+  "type" : "index_hadoop",
+  "spec" : {
+    "ioConfig" : {
+      "type" : "hadoop",
+      "inputSpec" : {
+        "type" : "static",
+        "paths" : "/user/hadoop/db/video/"
+      }
+    },
+    "dataSchema" : {
+      "dataSource" : "video",
+      "granularitySpec" : {
+        "type" : "uniform",
+        "segmentGranularity" : "day",
+        "queryGranularity" : "none",
+        "intervals" : ["2015-01-01 00:00:00.0/2016-06-21"]
+      },
+      "parser" : {
+        "type" : "string",
+        "parseSpec" : {
+          "format" : "csv",
+          "dimensionsSpec" : {
+            "dimensions" : [
+              "id",
+              "title",
+              "pic",
+              "ald_pic",
+              "recommend",
+              "definition",
+              "coderate",
+              "videourl",
+              "speed",
+              "degree",
+              "teach",
+              "beach",
+              "best",
+              "type",
+              "vid",
+              "search",
+              "siteid",
+              "sitekey",
+              "is_special",
+              "createtime",
+              "uptime",
+              "mp3url",
+              "user_hits",
+              "user_share",
+              "pc_uid",
+              "uid",
+              "status",
+              "tag",
+              "parent_category",
+              "child_category",
+              "genre",
+              "hobby",
+              "sync"
+            ]
+          },
+          "timestampSpec" : {
+            "format" : "yyyy-MM-dd HH:mm:ss.S",
+            "column" : "createtime"
+          }
+        }
+      },
+      "metricsSpec" : [
+        {
+          "name" : "count",
+          "type" : "count"
+        },
+        {
+          "name" : "hits_total",
+          "type" : "longSum",
+          "fieldName" : "hits_total"
+        },
+        {
+          "name" : "hits_week",
+          "type" : "longSum",
+          "fieldName" : "hits_week"
+        },
+        {
+          "name" : "hits_month",
+          "type" : "longSum",
+          "fieldName" : "hits_month"
+        },
+        {
+          "name" : "good_total",
+          "type" : "longSum",
+          "fieldName" : "good_total"
+        },
+        {
+          "name" : "good_week",
+          "type" : "longSum",
+          "fieldName" : "good_week"
+        },
+        {
+          "name" : "good_month",
+          "type" : "longSum",
+          "fieldName" : "good_month"
+        },
+        {
+          "name" : "duration",
+          "type" : "longSum",
+          "fieldName" : "duration"
+        },
+        {
+          "name" : "share",
+          "type" : "longSum",
+          "fieldName" : "share"
+        },
+        {
+          "name" : "comment_total",
+          "type" : "longSum",
+          "fieldName" : "comment_total"
+        },
+        {
+          "name" : "id",
+          "type" : "hyperUnique",
+          "fieldName" : "id"
+        }
+      ]
+    },
+    "tuningConfig" : {
+      "type" : "hadoop",
+      "partitionsSpec" : {
+        "type" : "hashed",
+        "targetPartitionSize" : 5000000
+      },
+      "jobProperties" : {}
+    }
+  }
+}

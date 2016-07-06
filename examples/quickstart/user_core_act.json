@@ -1,0 +1,262 @@
+{
+	"type": "index_hadoop",
+	"spec": {
+		"ioConfig": {
+			"type": "hadoop",
+			"inputSpec": {
+				"type": "static",
+				"paths": "/user/hadoop/dw/uca/dt=2016-07-02/000000_0"
+			}
+		},
+		"dataSchema": {
+			"dataSource": "user_core_act",
+			"granularitySpec": {
+				"type": "uniform",
+				"segmentGranularity": "day",
+				"queryGranularity": "none",
+				"intervals": [
+					"2016-06-30/2016-07-03"
+				]
+			},
+			"parser": {
+				"type": "string",
+				"parseSpec": {
+					"format": "csv",
+					"dimensionsSpec": {
+						"dimensions": [
+							"u_diu",
+							"u_dt"
+						]
+					},
+					"timestampSpec": {
+						"format": "yyyy-MM-dd",
+						"column": "u_dt"
+					},
+					"columns": [
+						"u_diu",
+						"u_interface_count",
+						"u_interface_distinct",
+						"u_search_all",
+						"u_searh_top",
+						"u_searh_radar",
+						"u_searh_tag",
+						"u_online_play",
+						"u_offline_play",
+						"u_comment",
+						"u_upload",
+						"u_download",
+						"u_like",
+						"u_praise",
+						"u_share",
+						"u_txd",
+						"u_space",
+						"u_shot",
+						"u_team_all",
+						"u_reverse0",
+						"u_reverse1",
+						"u_reverse2",
+						"u_reverse3",
+						"u_reverse4",
+						"u_reverse5",
+						"u_reverse6",
+						"u_reverse7",
+						"u_reverse8",
+						"u_reverse9",
+						"u_dt"
+					]
+				}
+			},
+			"metricsSpec": [
+				{
+					"name": "count",
+					"type": "count"
+				},
+				{
+					"name": "id",
+					"type": "hyperUnique",
+					"fieldName": "u_diu"
+				},
+				{
+					"name": "u_interface_count_sum",
+					"type": "longSum",
+					"fieldName": "u_interface_count"
+				},
+				{
+					"name": "u_interface_distinct_sum",
+					"type": "longSum",
+					"fieldName": "u_interface_distinct"
+				},
+				{
+					"name": "u_search_all_sum",
+					"type": "longSum",
+					"fieldName": "u_search_all"
+				},
+				{
+					"name": "u_searh_top_sum",
+					"type": "longSum",
+					"fieldName": "u_searh_top"
+				},
+				{
+					"name": "u_searh_radar_sum",
+					"type": "longSum",
+					"fieldName": "u_searh_radar"
+				},
+				{
+					"name": "u_searh_tag_sum",
+					"type": "longSum",
+					"fieldName": "u_searh_tag"
+				},
+				{
+					"name": "u_online_play_sum",
+					"type": "longSum",
+					"fieldName": "u_online_play"
+				},
+				{
+					"name": "u_offline_play_sum",
+					"type": "longSum",
+					"fieldName": "u_offline_play"
+				},
+				{
+					"name": "u_comment_sum",
+					"type": "longSum",
+					"fieldName": "u_comment"
+				},
+				{
+					"name": "u_upload_sum",
+					"type": "longSum",
+					"fieldName": "u_upload"
+				},
+				{
+					"name": "u_download_sum",
+					"type": "longSum",
+					"fieldName": "u_download"
+				},
+				{
+					"name": "u_like_sum",
+					"type": "longSum",
+					"fieldName": "u_like"
+				},
+				{
+					"name": "u_praise_sum",
+					"type": "longSum",
+					"fieldName": "u_praise"
+				},
+				{
+					"name": "u_share_sum",
+					"type": "longSum",
+					"fieldName": "u_share"
+				},
+				{
+					"name": "u_txd_sum",
+					"type": "longSum",
+					"fieldName": "u_txd"
+				},
+				{
+					"name": "u_space_sum",
+					"type": "longSum",
+					"fieldName": "u_space"
+				},
+				{
+					"name": "u_shot_sum",
+					"type": "longSum",
+					"fieldName": "u_shot"
+				},
+				{
+					"name": "u_interface_count_avg",
+					"type": "longMax",
+					"fieldName": "u_interface_count"
+				},
+				{
+					"name": "u_interface_distinct_max",
+					"type": "longMax",
+					"fieldName": "u_interface_distinct"
+				},
+				{
+					"name": "u_search_all_max",
+					"type": "longMax",
+					"fieldName": "u_search_all"
+				},
+				{
+					"name": "u_searh_top_max",
+					"type": "longMax",
+					"fieldName": "u_searh_top"
+				},
+				{
+					"name": "u_searh_radar_max",
+					"type": "longMax",
+					"fieldName": "u_searh_radar"
+				},
+				{
+					"name": "u_searh_tag_max",
+					"type": "longMax",
+					"fieldName": "u_searh_tag"
+				},
+				{
+					"name": "u_online_play_max",
+					"type": "longMax",
+					"fieldName": "u_online_play"
+				},
+				{
+					"name": "u_offline_play_max",
+					"type": "longMax",
+					"fieldName": "u_offline_play"
+				},
+				{
+					"name": "u_comment_max",
+					"type": "longMax",
+					"fieldName": "u_comment"
+				},
+				{
+					"name": "u_upload_max",
+					"type": "longMax",
+					"fieldName": "u_upload"
+				},
+				{
+					"name": "u_download_max",
+					"type": "longMax",
+					"fieldName": "u_download"
+				},
+				{
+					"name": "u_like_max",
+					"type": "longMax",
+					"fieldName": "u_like"
+				},
+				{
+					"name": "u_praise_max",
+					"type": "longMax",
+					"fieldName": "u_praise"
+				},
+				{
+					"name": "u_share_max",
+					"type": "longMax",
+					"fieldName": "u_share"
+				},
+				{
+					"name": "u_txd_max",
+					"type": "longMax",
+					"fieldName": "u_txd"
+				},
+				{
+					"name": "u_space_max",
+					"type": "longMax",
+					"fieldName": "u_space"
+				},
+				{
+					"name": "u_shot_max",
+					"type": "longMax",
+					"fieldName": "u_shot"
+				}
+			]
+		},
+		"tuningConfig": {
+			"type": "hadoop",
+			"partitionsSpec": {
+				"type": "hashed",
+				"targetPartitionSize": 5000000
+			},
+			"jobProperties": {
+				
+			}
+		}
+	}
+}
