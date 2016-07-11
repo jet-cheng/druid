@@ -79,7 +79,9 @@ public abstract class HadoopDruidIndexerMapper<KEYOUT, VALUEOUT> extends Mapper<
                 innerMap(inputRow, value, context);
             }
         } catch (RuntimeException e) {
-            throw new RE(e, "Failure on row[%s]", value);
+        	//log.debug(e, "Failure on row[%s]", value);
+        	//return; 
+        	throw new RE(e, "Failure on row[%s]", value);
         }
     }
 
